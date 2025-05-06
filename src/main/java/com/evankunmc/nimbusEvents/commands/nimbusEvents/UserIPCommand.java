@@ -7,6 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 public class UserIPCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -15,8 +17,12 @@ public class UserIPCommand implements CommandExecutor {
             return false;
         }
 
-        Player user = (Player) Bukkit.getPlayer(strings[1]);
-        String ip = user.getAddress().getAddress().getHostAddress();
+        Player user = Bukkit.getPlayer(strings[1]);
+        if (user == null) {
+            commandSender.sendMessage(MessageManager.prefix + MessageManager.convertMessage("&fUser not found: " + strings[1]));
+            return false;
+        }
+        String ip = Objects.requireNonNull(user.getAddress()).getHostName();
 
         commandSender.sendMessage(MessageManager.convertMessage(
                 "The IP of the user &l" + strings[1] + "&r is: &n" + ip

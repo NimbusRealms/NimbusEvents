@@ -13,10 +13,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import javax.naming.ConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
+import java.util.Objects;
 
 public class JoinEvent implements CommandExecutor {
     @Override
@@ -55,7 +55,7 @@ public class JoinEvent implements CommandExecutor {
             return false;
         }
 
-        String ipAddress = player.getAddress().getHostName().replaceAll("\\.", "-");
+        String ipAddress = Objects.requireNonNull(player.getAddress()).getHostName().replaceAll("\\.", "-");
 
         if (!eventDataYaml.contains(ipAddress)) {
             eventDataYaml.set(ipAddress + ".username", commandSender.getName());
@@ -69,7 +69,7 @@ public class JoinEvent implements CommandExecutor {
                 return false;
             }
         } else {
-            if(!eventDataYaml.getString(ipAddress + ".username").equals(commandSender.getName())) {
+            if(!Objects.equals(eventDataYaml.getString(ipAddress + ".username"), commandSender.getName())) {
                 if(ConfigManager.eventsConfig.getBoolean(strings[1] + ".no-alts", false)) {
                     if(!commandSender.hasPermission(NimbusEvents.PERMISSION_BYPASSALT)) {
                         commandSender.sendMessage(MessageManager.convertMessage(

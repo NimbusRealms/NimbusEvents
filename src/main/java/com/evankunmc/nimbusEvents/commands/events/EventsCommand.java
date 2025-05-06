@@ -13,7 +13,6 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EventsCommand implements CommandExecutor, TabCompleter {
     @Override
@@ -46,9 +45,6 @@ public class EventsCommand implements CommandExecutor, TabCompleter {
                 case "leave":
                     List<String> events = new ArrayList<>();
                     for(String event : ConfigManager.eventsConfig.getKeys(false)) {
-                        Player player = Bukkit.getPlayer(commandSender.getName());
-//                        MessageManager.sendPlayer(player, event);
-//                        MessageManager.sendPlayer(player, ConfigManager.eventsConfig.getBoolean(event + ".enabled", false) ? "enabled" : "disabled");
                         if(ConfigManager.eventsConfig.getBoolean(event + ".enabled", false)) {
                             events.add(event);
                         }
