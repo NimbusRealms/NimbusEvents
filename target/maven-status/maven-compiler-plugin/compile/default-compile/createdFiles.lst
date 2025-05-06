@@ -1,0 +1,14 @@
+com\evankunmc\nimbusEvents\commands\nimbusEvents\EventInfoCommand.class
+com\evankunmc\nimbusEvents\utils\ConfigManager.class
+com\evankunmc\nimbusEvents\utils\MessageManager.class
+com\evankunmc\nimbusEvents\commands\HelpCommand.class
+com\evankunmc\nimbusEvents\commands\nimbusEvents\UserIPCommand.class
+com\evankunmc\nimbusEvents\utils\Commons.class
+com\evankunmc\nimbusEvents\commands\events\EventsCommand.class
+com\evankunmc\nimbusEvents\commands\nimbusEvents\NimbusEventsCommand.class
+com\evankunmc\nimbusEvents\commands\nimbusEvents\StartEventCommand.class
+com\evankunmc\nimbusEvents\NimbusEvents.class
+com\evankunmc\nimbusEvents\commands\events\LeaveEvent.class
+com\evankunmc\nimbusEvents\commands\nimbusEvents\EndEventCommand.class
+com\evankunmc\nimbusEvents\commands\events\JoinEvent.class
+com\evankunmc\nimbusEvents\commands\nimbusEvents\EventListCommand.class

@@ -1,0 +1,25 @@
+name: NimbusEvents
+version: 1.0
+author: evankunmc
+description: An events management plugin for NimbusRealms
+main: com.evankunmc.nimbusEvents.NimbusEvents
+api-version: '1.21'
+
+commands:
+  events:
+    description: User-level command, enables users to join and leave active events
+    permission: nimbusevents.event
+  nimbusevents:
+    description: Admin-level command, enables admins to verify plugin data
+    permission: nimbusevents.admin
+
+permissions:
+  nimbusevents.event:
+    description: User-level permission of NimbusEvents
+    default: true
+  nimbusevents.bypassalt:
+    description: This permission bypasses the alt checker
+    default: false
+  nimbusevents.admin:
+    description: Admin-level permission of NimbusEvents
+    default: op

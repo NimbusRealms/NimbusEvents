@@ -1,0 +1,17 @@
+sample:
+  enabled: true
+  announce-title: "Hide n' Seek"
+  world: events
+  X: 941
+  Y: 69
+  Z: 1155
+  no-alts: true
+  bounds:
+    NW:
+      X: 668
+      Y: -64
+      Z: 998
+    SE:
+      X: 999
+      Y: 318
+      Z: 1287
