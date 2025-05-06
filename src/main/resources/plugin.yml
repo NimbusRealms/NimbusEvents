@@ -9,9 +9,11 @@ commands:
   events:
     description: User-level command, enables users to join and leave active events
     permission: nimbusevents.event
+    usage: "Usage: /events [join|leave] [event name]"
   nimbusevents:
     description: Admin-level command, enables admins to verify plugin data
     permission: nimbusevents.admin
+    usage: "Usage: /nimbusevents [info|list|start|end|ip] [args]"
 
 permissions:
   nimbusevents.event:

@@ -1,6 +1,7 @@
 package com.evankunmc.nimbusEvents.commands.nimbusEvents;
 
 import com.evankunmc.nimbusEvents.NimbusEvents;
+import com.evankunmc.nimbusEvents.commands.HelpCommand;
 import com.evankunmc.nimbusEvents.utils.ConfigManager;
 import com.evankunmc.nimbusEvents.utils.MessageManager;
 import org.bukkit.Bukkit;
@@ -27,6 +28,7 @@ public class NimbusEventsCommand implements CommandExecutor, TabCompleter {
         }
 
         return switch (strings[0].toLowerCase()) {
+            case "help" -> new HelpCommand().onCommand(commandSender, command, s, strings);
             case "start" -> new StartEventCommand().onCommand(commandSender, command, s, strings);
             case "end" -> new EndEventCommand().onCommand(commandSender, command, s, strings);
             case "info" -> new EventInfoCommand().onCommand(commandSender, command, s, strings);
@@ -40,7 +42,7 @@ public class NimbusEventsCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
 
         if(strings.length == 1) {
-            return List.of("start", "end", "info", "list", "ip");
+            return List.of("start", "end", "info", "list", "ip", "help");
         }
 
         if(strings.length == 2) {
