@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.Objects;
 
-public class JoinEvent implements CommandExecutor {
+public class JoinEventCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player player)) {

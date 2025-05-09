@@ -2,6 +2,7 @@ package com.evankunmc.nimbusEvents;
 
 import com.evankunmc.nimbusEvents.commands.events.EventsCommand;
 import com.evankunmc.nimbusEvents.commands.nimbusEvents.NimbusEventsCommand;
+import com.evankunmc.nimbusEvents.events.PlayerInteractListener;
 import com.evankunmc.nimbusEvents.utils.ConfigManager;
 import com.evankunmc.nimbusEvents.utils.MessageManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -29,6 +30,8 @@ public final class NimbusEvents extends JavaPlugin {
             MessageManager.sendConsole("&cAn error has occurred while loading the commands");
             MessageManager.sendConsole(e.getMessage());
         }
+
+        this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
     }
 
     @Override
