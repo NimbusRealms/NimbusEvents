@@ -1,0 +1,36 @@
+name: Java CI & Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Only triggers when you push a tag like v1.2.0
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Rename JAR with version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          mv target/NimbusEvents-*.jar NimbusEvents-${VERSION}.jar
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          files: NimbusEvents-${{ github.ref_name }}.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
