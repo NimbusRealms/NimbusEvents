@@ -4,12 +4,10 @@ import com.evankunmc.nimbusEvents.NimbusEvents;
 import com.evankunmc.nimbusEvents.commands.HelpCommand;
 import com.evankunmc.nimbusEvents.utils.ConfigManager;
 import com.evankunmc.nimbusEvents.utils.MessageManager;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +24,9 @@ public class EventsCommand implements CommandExecutor, TabCompleter {
 
         return switch (strings[0].toLowerCase()) {
             case "help" -> new HelpCommand().onCommand(commandSender, command, s, strings);
-            case "join" -> new JoinEvent().onCommand(commandSender, command, s, strings);
-            case "leave" -> new LeaveEvent().onCommand(commandSender, command, s, strings);
+            case "join" -> new JoinEventCommand().onCommand(commandSender, command, s, strings);
+            case "leave" -> new LeaveEventCommand().onCommand(commandSender, command, s, strings);
+            case "glow" -> new GlowCommand().onCommand(commandSender, command, s, strings);
             default -> false;
         };
 

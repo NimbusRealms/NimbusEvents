@@ -32,6 +32,7 @@ public class NimbusEventsCommand implements CommandExecutor, TabCompleter {
             case "info" -> new EventInfoCommand().onCommand(commandSender, command, s, strings);
             case "list" -> new EventListCommand().onCommand(commandSender, command, s, strings);
             case "ip" -> new UserIPCommand().onCommand(commandSender, command, s, strings);
+            case "giveboost" -> new GiveBoostCommand().onCommand(commandSender, command, s, strings);
             default -> false;
         };
     }

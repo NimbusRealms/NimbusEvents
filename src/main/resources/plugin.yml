@@ -4,6 +4,8 @@ author: evankunmc
 description: An events management plugin for NimbusRealms
 main: com.evankunmc.nimbusEvents.NimbusEvents
 api-version: '1.21'
+softdepend:
+  - Citizens
 
 commands:
   events:
